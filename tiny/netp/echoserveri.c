@@ -1,5 +1,7 @@
 #include "../csapp.h"
 #include "echo.c"
+#include <pthread.h>
+#include <unistd.h>
 
 void echo(int connfd);
 
@@ -34,10 +36,13 @@ int main(int argc, char **argv){
         // 연결 상태 출력
         printf("Connected to (%s, %s)\n", client_hostname, client_port);
         // 서버에 출력하는 함수
-        echo(connfd);
-        // 소켓 닫기
+        if(Fork() == 0){
+            Close(listenfd);
+            echo(connfd);
+            // 소켓 닫기
+            Close(connfd);
+            exit(0);
+        }
         Close(connfd);
     }
-    //프로그램 종료
-    exit(0);
 }

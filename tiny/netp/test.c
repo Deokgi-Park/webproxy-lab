@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     memset(&hints, 0, sizeof(hints)); // hints 구조체의 모든 값을 0으로 초기화
     //hints.ai_family = AF_UNSPEC; // IPv4와 IPv6 상관하지 않고 결과를 모두 받겠다
     hints.ai_family = AF_UNSPEC; // IPv4와 IPv6 상관하지 않고 결과를 모두 받겠다
-    //hints.ai_socktype = SOCK_STREAM; // TCP stream socket
+    //hints.ai_socktype = SOCK_STREAM; // TCP stream socket type : 1
     
     if(!strcmp(argv[1],"0")){
         status = getaddrinfo(NULL, NULL, &hints, &serviceInfo);
@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "getnameinfo error: %s\n", gai_strerror(status));
             continue;
         }
-        printf("Address: %s, Length: %d\n", host, p->ai_addrlen);
-        printf("Address: %s, Length: %d\n", host, p->ai_socktype);
+        //printf("Address: %s, Length: %d\n", host, p->ai_addrlen);
+        printf("Address: %s, socket type: %d\n", host, p->ai_socktype);
         
         if (addr->sa_family == AF_INET) { // IPv4 주소인 경우
             struct sockaddr_in *ipv4 = (struct sockaddr_in *)addr;

@@ -1,17 +1,28 @@
 #include "../csapp.h"
+#include <pthread.h>
+#include <unistd.h>
 
 void echo(int connfd){
     size_t n;
-    char buf[MAXLINE];
-    rio_t rio;
+    static char buf[MAXLINE];
+    static rio_t rio;
+    pthread_t thread;
+
+
+    void *additional_thread(int fd) {
+        while((n = Rio_readlineb(&rio, buf, MAXLINE)) != 0) {
+            Fputs(buf, stdout);
+        }
+    }
 
     Rio_readinitb(&rio, connfd);
-    while((n = Rio_readlineb(&rio, buf, MAXLINE)) != 0){
-        //입력 바이트 출력
-        //printf("server received %d bytes\n", (int) n);
-        //콘솔에 입력된 문자 출력
-        Fputs(buf, stdout);
-        // 입력된 문자 소켓에 기록
-        Rio_writen(connfd, buf, n);
+    
+    pthread_create(&thread, NULL, additional_thread, &connfd);    
+    
+    while(1){
+        //서버 응답 준비
+        Fgets(buf, MAXLINE, stdin);
+        // 클라이언트에게 돌려줄  문자 소켓에 기록
+        Rio_writen(connfd, buf, strlen(buf));
     }
 }

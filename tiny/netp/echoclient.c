@@ -1,4 +1,7 @@
 #include "../csapp.h"
+#include "echo.c"
+#include <pthread.h>
+#include <unistd.h>
 
 int main(int argc, char **argv){
     //클라이언트 파일 디스크립션 생성
@@ -28,15 +31,18 @@ int main(int argc, char **argv){
     clientfd = Open_clientfd(host, port);
     //clientfd을 사용해 Rio 연결 및 초기 셋팅
     Rio_readinitb(&rio, clientfd);
-
-    //글자 입력 받기, NULL(ctrl+d)이 아니면 계속 동작, 
-    while(Fgets(buf, MAXLINE, stdin) != NULL){
-        //서버 파일 쓰기(소켓)
-        Rio_writen(clientfd, buf, strlen(buf));
-        //서버 파일 읽기(소켓)
-        Rio_readlineb(&rio, buf, MAXLINE);
-    }
-    // 종료 시 소켓 닫기
+    echo(clientfd);
+    
+    // //글자 입력 받기, NULL(ctrl+d)이 아니면 계속 동작, 
+    // while(Fgets(buf, MAXLINE, stdin) != NULL){
+    //     //서버 파일 쓰기(소켓)
+    //     Rio_writen(clientfd, buf, strlen(buf));
+    //     //서버 파일 읽기(소켓)
+    //     Rio_readlineb(&rio, buf, MAXLINE);
+    //     //서버 응답 읽기
+    //     Fputs(buf, stdout);
+    // }
+    // // 종료 시 소켓 닫기
     Close(clientfd);
     // 프로그램 종료
     exit(0);

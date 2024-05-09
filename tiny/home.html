@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="./godzilla.jpg" >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌟 Studio Ghibli 애니메이션 🌟</title>
@@ -11,9 +12,6 @@
             padding: 0;
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPqn7_S_KO3Fs9pSZu8qzMcgAuJPMzoKrHRg&s');
         }
-	
-	
-	
         .container {
             width: 80%;
             margin: auto;
@@ -87,13 +85,24 @@
         .anime-item:hover p {
             color: #444;
         }
+        video{
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>🌟 Studio <span>Ghibli</span> 애니메이션 🌟</h1>
-    
+    <form method="get" action="/cgi-bin/adder" style="text-align: center;">
+        <p>작은 계산기를 사용해보세요</p>
+        <input name="first" type="text">
+        <input name="second" type="text">
+        <input type="submit">
+    </form>
+    <div class="anime">
+        <video src="./live.mp4" controls autoplay="true" preload="auto" muted></video>
+    </div>
     <div class="anime">
         <div class="anime-item">
             <img src="https://upload.wikimedia.org/wikipedia/ko/thumb/7/76/%EC%9D%B4%EC%9B%83%EC%A7%91_%ED%86%A0%ED%86%A0%EB%A1%9C.jpg/220px-%EC%9D%B4%EC%9B%83%EC%A7%91_%ED%86%A0%ED%86%A0%EB%A1%9C.jpg" alt="이웃집 토토로">

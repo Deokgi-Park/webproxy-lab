@@ -1,0 +1,4 @@
+nohup ./tiny/tiny 8080 &
+nohup ./proxy 8081 &
+
+telnet localhost 8081

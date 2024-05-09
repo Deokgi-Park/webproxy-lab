@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="./godzilla.jpg" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Studio Ghibli 애니메이션 🌟</title>
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPqn7_S_KO3Fs9pSZu8qzMcgAuJPMzoKrHRg&s');
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        h1 span {
+            color: #ff6f61;
+        }
+        .anime {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .anime-item {
+            width: 300px;
+            margin: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .anime-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .anime-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .anime-item .info {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: background-color 0.3s ease-in-out;
+        }
+        .anime-item:hover .info {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        .anime-item h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+        .anime-item:hover h2 {
+            color: #ff6f61;
+        }
+        .anime-item p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+            transition: color 0.3s ease-in-out;
+        }
+        .anime-item:hover p {
+            color: #444;
+        }
+        video{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌟 Studio <span>Ghibli</span> 애니메이션 🌟</h1>
+    <form method="get" action="/cgi-bin/adder" style="text-align: center;">
+        <p>작은 계산기를 사용해보세요</p>
+        <input name="first" type="text">
+        <input name="second" type="text">
+        <input type="submit">
+    </form>
+    <div class="anime">
+        <video src="./live.mp4" controls autoplay="true" preload="auto" muted></video>
+    </div>
+    <div class="anime">
+        <div class="anime-item">
+            <img src="https://upload.wikimedia.org/wikipedia/ko/thumb/7/76/%EC%9D%B4%EC%9B%83%EC%A7%91_%ED%86%A0%ED%86%A0%EB%A1%9C.jpg/220px-%EC%9D%B4%EC%9B%83%EC%A7%91_%ED%86%A0%ED%86%A0%EB%A1%9C.jpg" alt="이웃집 토토로">
+            <div class="info">
+                <h2>이웃집 토토로</h2>
+                <p>농부 가족이 이사를 가게 되면서 공기 순수하고 아름다운 시골에서의 삶을 시작한다. 하지만 이사 온 첫날부터 이상한 일이 일어나기 시작하는데...</p>
+            </div>
+        </div>
+        
+        <div class="anime-item">
+            <img src="https://upload.wikimedia.org/wikipedia/ko/thumb/b/bc/%EC%84%BC%EA%B3%BC_%EC%B9%98%ED%9E%88%EB%A1%9C%EC%9D%98_%ED%96%89%EB%B0%A9%EB%B6%88%EB%AA%85_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg/220px-%EC%84%BC%EA%B3%BC_%EC%B9%98%ED%9E%88%EB%A1%9C%EC%9D%98_%ED%96%89%EB%B0%A9%EB%B6%88%EB%AA%85_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg" alt="센과 치히로의 행방불명">
+            <div class="info">
+                <h2>센과 치히로의 행방불명</h2>
+                <p>치히로는 엄마와 아빠와 함께 여행을 하던 도중 길을 잃고 실수로 신비한 세계인 산으로 들어가게 된다.</p>
+            </div>
+        </div>
+        
+        <div class="anime-item">
+            <img src="https://upload.wikimedia.org/wikipedia/ko/thumb/9/9b/%EB%A7%88%EB%85%80%EB%B0%B0%EB%8B%AC%EB%B6%80%ED%82%A4%ED%82%A4_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg/220px-%EB%A7%88%EB%85%80%EB%B0%B0%EB%8B%AC%EB%B6%80%ED%82%A4%ED%82%A4_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg" alt="마녀 배달부 키키">
+            <div class="info">
+                <h2>마녀 배달부 키키</h2>
+                <p>13세인 키키는 마녀의 자격증을 따기 위해 친구와 함께 어디선가 살기 시작한다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
